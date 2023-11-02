@@ -40,6 +40,8 @@ func (d *Disk) Resolve(box string, name string) (file.File, error) {
 		return nil, os.ErrNotExist
 	}
 	if bb, err := ioutil.ReadFile(path); err == nil {
+		abs, _ := filepath.Abs(path)
+		plog.Debug(d, "Resolve", "abs", abs)
 		return file.NewFile(OsPath(name), bb)
 	}
 	return nil, os.ErrNotExist
