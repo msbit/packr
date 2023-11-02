@@ -8,7 +8,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-var Logger = logger.New(logger.ErrorLevel)
+var Logger = logger.New(logger.DebugLevel)
 
 func Debug(t interface{}, m string, args ...interface{}) {
 	if len(args)%2 == 1 {
